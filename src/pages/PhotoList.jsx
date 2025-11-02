@@ -182,7 +182,7 @@ const PhotoList = () => {
                 clipRule="evenodd"
               />
             </svg>
-            <span className="font-medium">You've reached the end of the gallery</span>
+            <span className="font-medium">You have reached the end of the gallery</span>
           </div>
         </div>
       )}
