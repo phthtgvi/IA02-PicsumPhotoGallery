@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import PhotoCard from '../components/PhotoCard'
 import LoadingSpinner, { PhotoSkeleton } from '../components/LoadingSpinner'
 import { fetchPhotos } from '../services/api'
@@ -11,9 +11,7 @@ const PhotoList = () => {
   const [error, setError] = useState(null)
 
   const fetchMorePhotos = useCallback(async (page) => {
-    try {
-      console.log(`Fetching page ${page}...`)
-      const newPhotos = await fetchPhotos(page)
+    const newPhotos = await fetchPhotos(page)
 
       if (newPhotos.length > 0) {
         setPhotos(prevPhotos => {
@@ -25,9 +23,6 @@ const PhotoList = () => {
       }
 
       return []
-    } catch (err) {
-      throw err
-    }
   }, [])
 
   const {

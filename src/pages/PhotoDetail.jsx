@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { useParams, useNavigate, Link } from 'react-router-dom'
 import LoadingSpinner, { ImagePlaceholder } from '../components/LoadingSpinner'
 import { fetchPhotoById } from '../services/api'
@@ -39,17 +39,6 @@ const PhotoDetail = () => {
   const handleImageError = () => {
     setImageError(true)
     setImageLoaded(true)
-  }
-
-  const handleDownload = () => {
-    if (photo) {
-      const link = document.createElement('a')
-      link.href = photo.download_url
-      link.download = `photo-${photo.id}-${photo.author}.jpg`
-      document.body.appendChild(link)
-      link.click()
-      document.body.removeChild(link)
-    }
   }
 
   if (loading) {
